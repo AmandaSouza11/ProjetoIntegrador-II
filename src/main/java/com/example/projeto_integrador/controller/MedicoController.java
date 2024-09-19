@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.projeto_integrador.data.MedicoData;
 import com.example.projeto_integrador.data.MedicosInfo;
 import com.example.projeto_integrador.service.MedicoService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("medico")
+@CrossOrigin("*")
 public class MedicoController {
 
     @Autowired

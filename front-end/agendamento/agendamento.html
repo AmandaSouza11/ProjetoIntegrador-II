@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agendamento_style.css">
+    <title>Agendamento de Consultas</title>
+</head>
+<body>
+    <h1>Agendamento de Consultas</h1>
+    <label for="especialidade">Escolha a especialidade:</label>
+    <select id="especialidade">
+        <option value="">Selecione...</option>
+        <option value="Cardiologista">Cardiologista</option>
+        <option value="dermatologia">Dermatologia</option>
+        <option value="nutricionista">Nutricionista</option>
+        <option value="clínico geral">Clínico geral</option>
+    </select>
+
+    <div id="medicos"></div>
+
+    <div id="calendario" style="display:none;">
+        <h2>Escolha uma data</h2>
+        <input type="date" id="data">
+        <div id="horarios" style="display:none;">
+            <h3>Escolha um horário</h3>
+            <select id="horario"></select>
+        </div>
+    </div>
+
+    <script src="agendamento.js"></script>
+</body>
+</html>
