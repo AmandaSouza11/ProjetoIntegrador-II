@@ -28,6 +28,7 @@ public class MedicoEntity {
     private String cpf;
     private String telefone;
     private String email;
+    private String senha;
     private String ra;
     private String crm;
     private String crn;
@@ -38,12 +39,14 @@ public class MedicoEntity {
     private String complemento;
     private String cidade;
     private String especialidade;
+    private String role;
 
     public MedicoEntity(MedicoData data) {
         this.nome = data.getNome();
         this.cpf = data.getCpf();
         this.telefone = data.getTelefone();
         this.email = data.getEmail();
+        this.senha = data.getSenha();
         this.ra = data.getRa();
         this.crm = data.getCrm();
         this.crn = data.getCrn();
@@ -54,6 +57,7 @@ public class MedicoEntity {
         this.complemento = data.getComplemento();
         this.cidade = data.getCidade();
         this.especialidade = data.getEspecialidade();
+        this.role = "MEDICO";
     }
 
 }

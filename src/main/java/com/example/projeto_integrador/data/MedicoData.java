@@ -9,6 +9,7 @@ public class MedicoData {
     private String cpf;
     private String telefone;
     private String email;
+    private String senha;
     private String ra;
     private String crm;
     private String crn;

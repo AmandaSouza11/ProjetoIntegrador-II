@@ -36,6 +36,7 @@ public class PacienteEntity {
     private String numero_residencial;
     private String complemento;
     private String cidade;
+    private String role;
 
     public PacienteEntity(PacienteData data) {
         this.nome = data.getNome();
@@ -50,6 +51,7 @@ public class PacienteEntity {
         this.numero_residencial = data.getNumero_residencial();
         this.complemento = data.getComplemento();
         this.cidade = data.getCidade(); 
+        this.role = "PACIENTE";
     }
     
 }

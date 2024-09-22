@@ -7,12 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projeto_integrador.data.PacienteData;
 import com.example.projeto_integrador.service.PacienteService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
 @RequestMapping("paciente")
+@CrossOrigin("*")
 public class PacienteController {
 
     @Autowired
