@@ -3,10 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela Inicial</title>
     <link rel="stylesheet" href="tela_paciente_style.css">
-    <title>Tela inicial</title>
 </head>
 <body>
-    <h1>Tela inicial</h1>
+
+    <div id="menu">
+        <a href="#" onclick="loadProfile()">Perfil</a>
+        <a href="#" onclick="loadAgendamento()">Agendamento</a>
+        <a href="#" onclick="loadHistorico()">Histórico de Consultas</a>
+        <a href="#" onclick="logout()">Sair</a>
+    </div>
+
+    <div id="content">
+        <div id="profile" class="active">
+            <h2><strong>Nome do Usuário</strong></h2>
+            <p>Data de Nascimento: 01/01/1990</p>
+            <p>CPF: 123.456.789-00</p>
+            <p>Telefone: (11) 91234-5678</p>
+            <p>Email: usuario@example.com</p>
+            <p>CEP: 12345-678</p>
+            <p>Bairro: Centro</p>
+            <p>Rua: Rua Exemplo</p>
+            <p>Número Residencial: 123</p>
+            <p>Complemento: Apartamento 1</p>
+            <p>Cidade: São Paulo</p>
+        </div>
+
+        <div id="agendamento" class="hidden">
+            <h2>Agendamento</h2>
+            <label for="especialidade">Escolha a Especialidade:</label>
+            <select id="especialidade">
+                <option value="">Selecione...</option>
+                <option value="Cardiologista">Cardiologista</option>
+                <option value="Dermatologia">Dermatologia</option>
+            </select>
+        
+            <div id="medicos" class="hidden"></div>
+        
+            <div id="calendario" class="hidden">
+                <h3>Selecione a Data</h3>
+                <input type="date" id="data" />
+                <div id="horarios" class="hidden">
+                    <h4>Horários Disponíveis</h4>
+                    <select id="horario">
+                        <option value="">Selecione um horário...</option>
+                    </select>
+                    <button id="agendarButton" class="hidden">Agendar</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="historico" class="hidden"></div>
+    </div>
+
+    <script src="tela_paciente.js"></script>
+    <script src="agendamento.js"></script>
 </body>
 </html>

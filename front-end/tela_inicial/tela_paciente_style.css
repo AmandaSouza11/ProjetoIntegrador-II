@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+#menu {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    position: fixed;
+}
+
+#menu a {
+    display: block;
+    margin: 15px 0;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+#menu a:hover {
+    background-color: #e0e0e0;
+}
+
+#content {
+    margin-left: 220px; 
+    padding: 20px;
+    overflow-y: auto;
+    height: 100vh; 
+}
+
+.hidden {
+    display: none;
+}
+
+#profile, #agendamento, #historico {
+    display: none; 
+}
+
+#profile.active, #agendamento.active, #historico.active {
+    display: block; 
+}
+
+.medico-info {
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 15px; 
+    margin: 10px 0; 
+    background-color: #f9f9f9; 
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+#agendarButton {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px; 
+    border: none;
+    cursor: pointer;
+}
+
+#agendarButton:hover {
+    background-color: darkgreen; 
+}
+

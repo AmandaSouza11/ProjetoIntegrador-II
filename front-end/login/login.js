@@ -28,6 +28,7 @@ function logar() {
     .then(response => response.text()) 
     .then(role => {
         if (role === 'PACIENTE') {
+            localStorage.setItem('usuarioEmail', email);
             window.location.href = "../tela_inicial/tela_paciente.html";
         } else if (role === 'MEDICO') {
             window.location.href = "../tela_inicial/tela_medico.html";
