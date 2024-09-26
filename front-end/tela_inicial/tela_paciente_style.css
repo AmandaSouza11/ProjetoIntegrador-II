@@ -46,18 +46,27 @@ body {
 }
 
 #profile {
-    margin-left: 20px; /* Adiciona uma margem à esquerda */
+    margin-left: 20px; 
 }
 
 #agendamento {
-    margin-left: 20px; /* Adiciona uma margem à esquerda */
+    margin-left: 20px; 
+}
+
+.consulta-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
 }
 
 .medico-info {
+    flex: 1 1 30%; 
+    min-width: 250px; 
+    margin: 10px; 
+    box-sizing: border-box; 
     border: 1px solid #ccc; 
     border-radius: 5px; 
     padding: 15px; 
-    margin: 10px 0; 
     background-color: #f9f9f9; 
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
 }
@@ -74,4 +83,29 @@ body {
 
 #agendarButton:hover {
     background-color: darkgreen; 
+}
+
+.cancelarButton {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancelarButton:hover {
+    background-color: darkred;
+}
+
+.status-agendado {
+    color: rgb(23, 158, 23);
+}
+
+.status-realizada {
+    color: blue;
+}
+
+.status-cancelada {
+    color: red;
 }

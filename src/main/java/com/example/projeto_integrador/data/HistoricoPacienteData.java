@@ -17,4 +17,5 @@ public class HistoricoPacienteData {
     private String data;
     private String horario;
     private Long idAgendamento;
+    private String status;
 }

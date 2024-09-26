@@ -4,12 +4,19 @@ async function loadHistorico() {
     const historico = await response.json();
 
     const historicoDiv = document.getElementById('historico');
-    historicoDiv.innerHTML = ''; // Limpa o conteúdo anterior
+    historicoDiv.innerHTML = ''; 
+
+    const container = document.createElement('div');
+    container.classList.add('consulta-container'); 
 
     historico.forEach(item => {
         const medicoInfo = document.createElement('div');
         medicoInfo.classList.add('medico-info');
-        
+
+        const statusClass = item.status.toUpperCase() === 'AGENDADO' ? 'status-agendado' :
+                            item.status.toUpperCase() === 'REALIZADA' ? 'status-realizada' :
+                            item.status.toUpperCase() === 'CANCELADA' ? 'status-cancelada' : '';
+
         medicoInfo.innerHTML = `
             <h3>${item.nomeMedico}</h3>
             <p><strong>CRM:</strong> ${item.crm}</p>
@@ -22,12 +29,24 @@ async function loadHistorico() {
             <p><strong>Cidade:</strong> ${item.cidade}</p>
             <p><strong>Data:</strong> ${item.data}</p>
             <p><strong>Horário:</strong> ${item.horario}</p>
+            <p><strong>Status:</strong> <span class="${statusClass}">${item.status}</span></p>
         `;
 
-        historicoDiv.appendChild(medicoInfo);
+        if (item.status && item.status.toUpperCase() === 'AGENDADO') {
+            const cancelarButton = document.createElement('button');
+            cancelarButton.className = 'cancelarButton'; 
+            cancelarButton.innerText = 'Cancelar consulta';
+            cancelarButton.onclick = async () => {
+                await cancelarConsulta(item.idAgendamento);
+            };
+            medicoInfo.appendChild(cancelarButton);
+        }
+
+        container.appendChild(medicoInfo);
     });
 
-    // Muda a visibilidade do conteúdo
+    historicoDiv.appendChild(container);
+
     document.querySelectorAll('#content > div').forEach(div => div.classList.remove('active'));
     historicoDiv.classList.add('active');
 }

@@ -44,6 +44,7 @@ public class HistoricoService {
                     data.setData(agendamento.getData().toString());
                     data.setHorario(agendamento.getHorario().toString());
                     data.setIdAgendamento(agendamento.getId());
+                    data.setStatus(agendamento.getStatus());
 
                     historicoPaciente.add(data);
                 });
