@@ -45,6 +45,14 @@ body {
     display: block; 
 }
 
+#profile {
+    margin-left: 20px; /* Adiciona uma margem à esquerda */
+}
+
+#agendamento {
+    margin-left: 20px; /* Adiciona uma margem à esquerda */
+}
+
 .medico-info {
     border: 1px solid #ccc; 
     border-radius: 5px; 
@@ -67,4 +75,3 @@ body {
 #agendarButton:hover {
     background-color: darkgreen; 
 }
-
