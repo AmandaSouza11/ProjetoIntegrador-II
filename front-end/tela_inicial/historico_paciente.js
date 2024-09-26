@@ -9,6 +9,12 @@ async function loadHistorico() {
     const container = document.createElement('div');
     container.classList.add('consulta-container'); 
 
+    // Função para formatar a data no formato dd/mm/aaaa
+    function formatarData(data) {
+        const partes = data.split("-");
+        return `${partes[2]}/${partes[1]}/${partes[0]}`;
+    }
+
     historico.forEach(item => {
         const medicoInfo = document.createElement('div');
         medicoInfo.classList.add('medico-info');
@@ -27,7 +33,7 @@ async function loadHistorico() {
             <p><strong>Número Residencial:</strong> ${item.numeroResidencial}</p>
             <p><strong>Complemento:</strong> ${item.complemento}</p>
             <p><strong>Cidade:</strong> ${item.cidade}</p>
-            <p><strong>Data:</strong> ${item.data}</p>
+            <p><strong>Data:</strong> ${formatarData(item.data)}</p> <!-- Formatação da data -->
             <p><strong>Horário:</strong> ${item.horario}</p>
             <p><strong>Status:</strong> <span class="${statusClass}">${item.status}</span></p>
         `;
