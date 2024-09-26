@@ -16,4 +16,5 @@ public class HistoricoPacienteData {
     private String cidade; 
     private String data;
     private String horario;
+    private Long idAgendamento;
 }
