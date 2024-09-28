@@ -9,7 +9,6 @@ async function loadHistorico() {
     const container = document.createElement('div');
     container.classList.add('consulta-container'); 
 
-    // Função para formatar a data no formato dd/mm/aaaa
     function formatarData(data) {
         const partes = data.split("-");
         return `${partes[2]}/${partes[1]}/${partes[0]}`;
