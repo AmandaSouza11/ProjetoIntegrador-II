@@ -27,10 +27,13 @@ function logar() {
     })
     .then(response => response.text()) 
     .then(role => {
+        localStorage.removeItem('usuarioEmail');
+
         if (role === 'PACIENTE') {
             localStorage.setItem('usuarioEmail', email);
             window.location.href = "../tela_inicial/tela_paciente.html";
         } else if (role === 'MEDICO') {
+            localStorage.setItem('usuarioEmail', email); 
             window.location.href = "../tela_inicial/tela_medico.html";
         } else {
             alert("Credenciais inválidas. Por favor, tente novamente.");

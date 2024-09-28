@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.projeto_integrador.data.HistoricoMedicoData;
 import com.example.projeto_integrador.data.HistoricoPacienteData;
 import com.example.projeto_integrador.service.HistoricoService;
 
@@ -27,4 +28,10 @@ public class HistoricoController {
         return ResponseEntity.ok(historico);
     }
     
+    @GetMapping("medico/{email}")
+    public ResponseEntity<List<HistoricoMedicoData>> listarPacientes(@PathVariable String email){
+        var historico = service.medicoHistorico(email);
+        return ResponseEntity.ok(historico);
+    }
+
 }

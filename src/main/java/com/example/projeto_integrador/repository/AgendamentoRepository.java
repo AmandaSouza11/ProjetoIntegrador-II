@@ -17,6 +17,9 @@ public interface AgendamentoRepository extends JpaRepository<AgendamentoEntity, 
     @Query(value = "SELECT * FROM agendamento WHERE paciente_email = :email", nativeQuery = true)
     List<AgendamentoEntity> findAllByEmail(@PathVariable String email);
 
+    @Query(value = "SELECT * FROM agendamento WHERE medico_email = :email", nativeQuery = true)
+    List<AgendamentoEntity> findAllByEmailMedico(@PathVariable String email);
+
     @Modifying
     @Transactional
     @Query(value = "UPDATE agendamento SET status = 'CANCELADA' WHERE id = :id", nativeQuery = true)
