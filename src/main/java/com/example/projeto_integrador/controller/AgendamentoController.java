@@ -1,5 +1,6 @@
 package com.example.projeto_integrador.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -9,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projeto_integrador.data.AgendamentoRequest;
+import com.example.projeto_integrador.data.HorarioDisponivelData;
 import com.example.projeto_integrador.service.AgendamentoService;
-
+import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("agendamento")
@@ -24,6 +26,12 @@ public class AgendamentoController {
     public ResponseEntity agendamento(@RequestBody AgendamentoRequest agendamentoRequest){
         var agendamento = service.agendamento(agendamentoRequest);
         return ResponseEntity.ok(agendamento);
+    }
+    
+    @GetMapping("/disponiveis")
+    public ResponseEntity<List<String>> verificaHorarioDisponivel(@RequestBody HorarioDisponivelData horarioDisponivelData) {
+        var horariosDisponiveis = service.verificaHorarioDisponivel(horarioDisponivelData);
+        return ResponseEntity.ok(horariosDisponiveis);
     }
     
 }
