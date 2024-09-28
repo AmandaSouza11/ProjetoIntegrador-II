@@ -18,4 +18,13 @@ public class PacienteService {
         return repository.save(paciente);
     }
     
+    public PacienteEntity perfilPaciente(String email){
+        var paciente = repository.findByEmail(email);
+        
+        if (paciente.isPresent()) {
+            return paciente.get(); 
+        }
+        
+        throw new RuntimeException("Paciente não encontrado");  
+    }
 }
