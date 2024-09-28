@@ -1,4 +1,3 @@
-// Variáveis para interação com o DOM
 const especialidadeSelect = document.getElementById('especialidade');
 const medicosDiv = document.getElementById('medicos');
 const calendarioDiv = document.getElementById('calendario');
@@ -59,19 +58,37 @@ especialidadeSelect.addEventListener('change', function() {
 });
 
 dataInput.addEventListener('change', function() {
-    horarioSelect.innerHTML = '';
-    const horariosDisponiveis = ['09:00', '10:00', '14:00']; 
+    horarioSelect.innerHTML = ''; 
+    horariosDiv.style.display = 'none'; 
 
     if (this.value) {
-        horariosDisponiveis.forEach(horario => {
-            const option = document.createElement('option');
-            option.value = horario;
-            option.textContent = horario;
-            horarioSelect.appendChild(option);
+        const data = this.value;
+        const horarioInput = '9:00'; 
+        const medicoEmail = agendarButton.dataset.medicoEmail; 
+
+        fetch(`http://localhost:8080/agendamento/disponiveis?data=${encodeURIComponent(data)}&horario=${encodeURIComponent(horarioInput)}&medioEmail=${encodeURIComponent(medicoEmail)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao buscar horários disponíveis');
+            }
+            return response.json();
+        })
+        .then(horarios => {
+            horarios.forEach(horario => {
+                const option = document.createElement('option');
+                option.value = horario;
+                option.textContent = horario;
+                horarioSelect.appendChild(option);
+            });
+
+            horariosDiv.style.display = 'block'; 
+            horarioSelect.style.display = 'block'; 
+            agendarButton.classList.remove('hidden'); 
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Ocorreu um erro ao buscar horários disponíveis.');
         });
-        horariosDiv.style.display = 'block'; 
-        horarioSelect.style.display = 'block'; 
-        agendarButton.classList.remove('hidden'); 
     } else {
         horariosDiv.style.display = 'none'; 
         agendarButton.classList.add('hidden'); 

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.projeto_integrador.data.AgendamentoRequest;
@@ -28,10 +29,11 @@ public class AgendamentoController {
         return ResponseEntity.ok(agendamento);
     }
     
-    @GetMapping("/disponiveis")
-    public ResponseEntity<List<String>> verificaHorarioDisponivel(@RequestBody HorarioDisponivelData horarioDisponivelData) {
-        var horariosDisponiveis = service.verificaHorarioDisponivel(horarioDisponivelData);
-        return ResponseEntity.ok(horariosDisponiveis);
+   @GetMapping("/disponiveis")
+    public ResponseEntity<List<String>> verificaHorarioDisponivel(@RequestParam String data, @RequestParam String horario, @RequestParam String medioEmail) {
+    HorarioDisponivelData horarioDisponivelData = new HorarioDisponivelData(data, horario, medioEmail);
+    var horariosDisponiveis = service.verificaHorarioDisponivel(horarioDisponivelData);
+    return ResponseEntity.ok(horariosDisponiveis);
     }
-    
+
 }
