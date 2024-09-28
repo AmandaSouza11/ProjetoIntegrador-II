@@ -30,5 +30,15 @@ public class MedicoService {
         .map(MedicosInfo::new)
         .collect(Collectors.toList());
     }
+
+    public MedicoEntity perfilMedico(String email){
+        var medico = repository.findByEmail(email);
+        
+        if (medico.isPresent()) {
+            return medico.get(); 
+        }
+        
+        throw new RuntimeException("Medico não encontrado");  
+    }
     
 }

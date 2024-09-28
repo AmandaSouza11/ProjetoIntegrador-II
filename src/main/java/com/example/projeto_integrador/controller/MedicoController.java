@@ -37,4 +37,9 @@ public class MedicoController {
         return ResponseEntity.ok(medicos);
     }
     
+    @GetMapping("/perfil/{email}")
+    public ResponseEntity perfilMedico(@PathVariable String email) {
+        var medico = service.perfilMedico(email);
+        return ResponseEntity.ok(medico);
+    }
 }
