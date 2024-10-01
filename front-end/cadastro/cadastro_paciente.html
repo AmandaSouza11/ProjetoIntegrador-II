@@ -7,6 +7,8 @@
     <title>Cadastro</title>
 </head>
 <body>
+    <button id="voltar" onclick="window.location.href='../login/login.html'" style="position: absolute; top: 20px; left: 20px;">VOLTAR</button>
+    
     <form onsubmit="cadastrarPaciente(event)">
         <div class="grupo">
             <div class="campo">
@@ -68,7 +70,7 @@
             </div>
         </div>
 
-        <button type="submit">Cadastrar</button>
+        <button id="cadastrar" type="submit">Cadastrar</button>
     </form>
 
     <script src="cadastro_paciente.js"></script> 

@@ -47,7 +47,7 @@ input {
     box-sizing: border-box;
 }
 
-button {
+#cadastrar {
     background-color: #007BFF; 
     color: white; 
     border: none; 
@@ -57,6 +57,19 @@ button {
     width: 100%; 
 }
 
-button:hover {
+#cadastrar:hover {
     background-color: #0056b3; 
+}
+
+#voltar {
+    background-color: #132faa; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+}
+
+#voltar:hover {
+    background-color: #132faa73; 
 }
