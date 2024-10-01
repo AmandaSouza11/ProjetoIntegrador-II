@@ -10,7 +10,7 @@ async function loadHistorico() {
     const historico = await response.json();
 
     const historicoDiv = document.getElementById('historico');
-    historicoDiv.innerHTML = ''; // Limpa o conteúdo existente
+    historicoDiv.innerHTML = ''; 
 
     const container = document.createElement('div');
     container.classList.add('consulta-container');
@@ -51,7 +51,6 @@ async function loadHistorico() {
 
     historicoDiv.appendChild(container);
 
-    // Alterna a visibilidade
     document.querySelectorAll('#content > div').forEach(div => div.classList.remove('active'));
     historicoDiv.classList.add('active');
 }

@@ -28,7 +28,7 @@ public interface AgendamentoRepository extends JpaRepository<AgendamentoEntity, 
     @Query(value = "SELECT * FROM agendamento WHERE medico_email = :medicoEmail AND data = :data", nativeQuery = true)
     List<AgendamentoEntity> findByMedicoEmailAndData(@Param("medicoEmail") String medicoEmail, @Param("data") String data);
 
-    @Query(value = "SELECT COUNT(*) FROM agendamento WHERE medico_email = :email AND DATE(data) = CURRENT_DATE", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM agendamento WHERE medico_email = :email AND DATE(data) = CURRENT_DATE AND status = 'AGENDADO'", nativeQuery = true)
     int countConsultationsTodayByMedicoEmail(@Param("email") String email);
-    
+
 }

@@ -55,3 +55,22 @@ async function loadHistorico() {
     document.querySelectorAll('#content > div').forEach(div => div.classList.remove('active'));
     historicoDiv.classList.add('active');
 }
+
+async function cancelarConsulta(idAgendamento) {
+    try {
+        const response = await fetch(`http://localhost:8080/cancelar/${idAgendamento}`, {
+            method: 'POST' 
+        });
+
+        if (response.ok) {
+            alert("Consulta Cancelada");
+            loadHistorico();
+        } else {
+            console.error("Erro ao cancelar a consulta:", response.statusText);
+            alert("Falha ao cancelar a consulta.");
+        }
+    } catch (error) {
+        console.error("Erro na requisição:", error);
+        alert("Ocorreu um erro ao tentar cancelar a consulta.");
+    }
+}
