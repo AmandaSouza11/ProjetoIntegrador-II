@@ -1,13 +1,19 @@
 async function loadHistorico() {
     const email = localStorage.getItem('usuarioEmail');
     const response = await fetch(`http://localhost:8080/historico/medico/${email}`);
+    
+    if (!response.ok) {
+        console.error('Erro ao buscar histórico:', response.status);
+        return;
+    }
+
     const historico = await response.json();
 
     const historicoDiv = document.getElementById('historico');
-    historicoDiv.innerHTML = ''; 
+    historicoDiv.innerHTML = ''; // Limpa o conteúdo existente
 
     const container = document.createElement('div');
-    container.classList.add('consulta-container'); 
+    container.classList.add('consulta-container');
 
     function formatarData(data) {
         const partes = data.split("-");
@@ -32,7 +38,7 @@ async function loadHistorico() {
 
         if (item.status && item.status.toUpperCase() === 'AGENDADO') {
             const cancelarButton = document.createElement('button');
-            cancelarButton.className = 'cancelarButton'; 
+            cancelarButton.className = 'cancelarButton';
             cancelarButton.innerText = 'Cancelar consulta';
             cancelarButton.onclick = async () => {
                 await cancelarConsulta(item.idAgendamento);
@@ -45,6 +51,7 @@ async function loadHistorico() {
 
     historicoDiv.appendChild(container);
 
+    // Alterna a visibilidade
     document.querySelectorAll('#content > div').forEach(div => div.classList.remove('active'));
     historicoDiv.classList.add('active');
 }
