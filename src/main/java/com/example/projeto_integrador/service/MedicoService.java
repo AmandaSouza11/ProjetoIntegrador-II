@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.example.projeto_integrador.data.MedicoData;
 import com.example.projeto_integrador.data.MedicosInfo;
 import com.example.projeto_integrador.entity.MedicoEntity;
+import com.example.projeto_integrador.repository.AgendamentoRepository;
 import com.example.projeto_integrador.repository.MedicoRepository;
 
 @Service
@@ -18,6 +19,9 @@ public class MedicoService {
 
     @Autowired
     private MedicoRepository repository;
+
+    @Autowired
+    private AgendamentoRepository agendamentoRepository;
 
     public MedicoEntity registrarMedico(MedicoData medicoData){
         var medico = new MedicoEntity(medicoData);
@@ -39,6 +43,10 @@ public class MedicoService {
         }
         
         throw new RuntimeException("Medico não encontrado");  
+    }
+
+    public int consultaDoDia(String email){
+        return agendamentoRepository.countConsultationsTodayByMedicoEmail(email);
     }
     
 }

@@ -79,8 +79,8 @@ public class HistoricoService {
                     historicoMedico.add(data);
                 });
             }
-            
+
             return historicoMedico;
         }
-    
+        
 }

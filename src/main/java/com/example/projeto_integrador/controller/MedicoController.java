@@ -42,4 +42,10 @@ public class MedicoController {
         var medico = service.perfilMedico(email);
         return ResponseEntity.ok(medico);
     }
+
+    @GetMapping("consulta/{email}")
+    public ResponseEntity consultaDoDia(@PathVariable String email) {
+        var medico = service.consultaDoDia(email);
+        return ResponseEntity.ok(medico);
+    }
 }
