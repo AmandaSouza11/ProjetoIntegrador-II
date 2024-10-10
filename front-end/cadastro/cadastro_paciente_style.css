@@ -73,3 +73,14 @@ input {
 #voltar:hover {
     background-color: #132faa73; 
 }
+
+.radio-group {
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+
+.radio-group label {
+    display: flex; 
+    align-items: center; 
+}

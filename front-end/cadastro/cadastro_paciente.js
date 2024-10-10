@@ -13,21 +13,46 @@ async function cadastrarPaciente(event) {
     const complemento = document.getElementById('complemento').value;
     const cidade = document.getElementById('cidade').value;
 
-    const pacienteData = {
-        nome,
-        data_nascimento: dataNascimento,
-        cpf,
-        telefone,
-        email,
-        senha,
-        cep,
-        bairro,
-        rua,
-        numero_residencial: numeroResidencial,
-        complemento,
-        cidade
-    };
+    const isMedico = document.querySelector('input[name="medico"]:checked');
 
+    if (isMedico && isMedico.value === 'sim') {
+        cadastrarMedico({
+            nome,
+            data_nascimento: dataNascimento,
+            cpf,
+            telefone,
+            email,
+            senha,
+            cep,
+            bairro,
+            rua,
+            numero_residencial: numeroResidencial,
+            complemento,
+            cidade,
+            ra: document.getElementById('ra').value,
+            crm: document.getElementById('crm').value,
+            crn: document.getElementById('crn').value,
+            especialidade: document.getElementById('especialidade').value
+        });
+    } else {
+        cadastrarPacienteData({
+            nome,
+            data_nascimento: dataNascimento,
+            cpf,
+            telefone,
+            email,
+            senha,
+            cep,
+            bairro,
+            rua,
+            numero_residencial: numeroResidencial,
+            complemento,
+            cidade
+        });
+    }
+}
+
+async function cadastrarPacienteData(pacienteData) {
     try {
         const response = await fetch('http://localhost:8080/paciente', {
             method: 'POST',
@@ -48,6 +73,41 @@ async function cadastrarPaciente(event) {
         console.error('Erro:', error);
         alert('Erro ao conectar com o servidor.');
     }
+}
+
+async function cadastrarMedico(medicoData) {
+    try {
+        const response = await fetch('http://localhost:8080/medico', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(medicoData)
+        });
+
+        if (response.ok) {
+            alert('Cadastro de médico realizado com sucesso!! Faça login para continuar');
+            window.location.href = '../login/login.html';
+        } else {
+            const errorResponse = await response.json();
+            alert('Erro ao cadastrar médico: ' + errorResponse.message);
+        }
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao conectar com o servidor.');
+    }
+}
+
+function toggleMedicoFields() {
+    const medicoFields = document.getElementById('medicoFields');
+    const isMedico = document.querySelector('input[name="medico"]:checked');
+
+    if (isMedico && isMedico.value === 'sim') {
+        medicoFields.style.display = 'block';
+    } else {
+        medicoFields.style.display = 'none';
+    }
+
 }
 
 function formatarData(event) {

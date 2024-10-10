@@ -70,6 +70,37 @@
             </div>
         </div>
 
+        <div class="campo">
+            <label>Você é médico?</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="medico" id="medicoSim" value="sim" onclick="toggleMedicoFields()" required> Sim
+                </label>
+                <label>
+                    <input type="radio" name="medico" id="medicoNao" value="nao" onclick="toggleMedicoFields()" required> Não
+                </label>
+            </div>
+        </div>
+        
+        <div id="medicoFields" style="display:none;">
+            <div class="campo">
+                <label for="ra">RA:</label>
+                <input type="text" id="ra">
+            </div>
+            <div class="campo">
+                <label for="crm">CRM:</label>
+                <input type="text" id="crm">
+            </div>
+            <div class="campo">
+                <label for="crn">CRN:</label>
+                <input type="text" id="crn">
+            </div>
+            <div class="campo">
+                <label for="especialidade">Especialidade:</label>
+                <input type="text" id="especialidade">
+            </div>
+        </div>
+        
         <button id="cadastrar" type="submit">Cadastrar</button>
     </form>
 
