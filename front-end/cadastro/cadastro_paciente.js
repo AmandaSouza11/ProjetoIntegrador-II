@@ -157,3 +157,29 @@ function formatarTelefone(event) {
 
     input.value = formattedValue; 
 }
+
+async function buscarEnderecoPorCep(cep) {
+    try {
+        const response = await fetch(`http://localhost:8080/cep/${cep}`);
+        if (response.ok) {
+            const endereco = await response.json();
+            
+            document.getElementById('rua').value = endereco.logradouro || '';   
+            document.getElementById('bairro').value = endereco.bairro || '';     
+            document.getElementById('cidade').value = endereco.localidade || ''; 
+        } else {
+            alert('CEP não encontrado.');
+        }
+    } catch (error) {
+        console.error('Erro ao buscar o endereço:', error);
+        alert('Erro ao conectar com o servidor. Tente novamente.');
+    }
+}
+
+document.getElementById('cep').addEventListener('keydown', function(event) {
+    const cep = this.value.replace(/\D/g, ''); 
+    
+    if (event.key === 'Enter' && cep.length === 8) { 
+        buscarEnderecoPorCep(cep);
+    }
+});
