@@ -15,10 +15,10 @@ import jakarta.transaction.Transactional;
 public interface AgendamentoRepository extends JpaRepository<AgendamentoEntity, Long> {
 
     @Query(value = "SELECT * FROM agendamento WHERE paciente_email = :email", nativeQuery = true)
-    List<AgendamentoEntity> findAllByEmail(@PathVariable String email);
+    List<AgendamentoEntity> findAllByEmail(@Param("email") String email);
 
     @Query(value = "SELECT * FROM agendamento WHERE medico_email = :email", nativeQuery = true)
-    List<AgendamentoEntity> findAllByEmailMedico(@PathVariable String email);
+    List<AgendamentoEntity> findAllByEmailMedico(@Param("email") String email);
 
     @Modifying
     @Transactional

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.projeto_integrador.data.MedicoData;
+import com.example.projeto_integrador.data.MedicoLista;
 import com.example.projeto_integrador.data.MedicosInfo;
 import com.example.projeto_integrador.entity.MedicoEntity;
 import com.example.projeto_integrador.repository.AgendamentoRepository;
@@ -47,6 +48,10 @@ public class MedicoService {
 
     public int consultaDoDia(String email){
         return agendamentoRepository.countConsultationsTodayByMedicoEmail(email);
+    }
+
+    public List<MedicoLista> listarMedicos(){
+        return repository.listarMedicos();
     }
     
 }

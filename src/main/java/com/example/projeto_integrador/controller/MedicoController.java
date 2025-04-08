@@ -16,6 +16,8 @@ import com.example.projeto_integrador.service.MedicoService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("medico")
@@ -47,5 +49,11 @@ public class MedicoController {
     public ResponseEntity consultaDoDia(@PathVariable String email) {
         var medico = service.consultaDoDia(email);
         return ResponseEntity.ok(medico);
+    }
+
+    @GetMapping("listar")
+    public ResponseEntity listarMedicos(){
+        var medicos = service.listarMedicos();
+        return ResponseEntity.ok(medicos);
     }
 }

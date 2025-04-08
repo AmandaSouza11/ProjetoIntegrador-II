@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat do Paciente</title>
+    <link rel="stylesheet" href="chat_style.css">
+</head>
+<body>
+    <div id="top-bar">
+        <button id="btn-voltar" onclick="window.location.href='../tela_inicial/tela_paciente.html'">Voltar</button>
+    </div>
+    <div id="medicos"></div>
+    <div id="chat">
+        <div id="mensagens">
+            <div class="mensagem-inicial">Inicie uma conversa</div>
+        </div>
+        <div id="entradaMensagem" style="display: none;">
+            <input type="text" id="mensagemInput" placeholder="Digite uma mensagem">
+            <button onclick="enviarMensagem()">Enviar</button>
+        </div>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+</html>

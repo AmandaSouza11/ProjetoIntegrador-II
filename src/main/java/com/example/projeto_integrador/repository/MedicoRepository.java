@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.projeto_integrador.data.MedicoLista;
 import com.example.projeto_integrador.entity.MedicoEntity;
 
 public interface MedicoRepository extends JpaRepository<MedicoEntity, Long> {
@@ -15,5 +16,8 @@ public interface MedicoRepository extends JpaRepository<MedicoEntity, Long> {
     List<MedicoEntity> findAllByEspecialidade(@PathVariable String especialidade);
 
     Optional<MedicoEntity> findByEmail(String email);
+
+    @Query(value = "SELECT nome, email FROM medico", nativeQuery = true)
+    List<MedicoLista> listarMedicos();
     
 }
