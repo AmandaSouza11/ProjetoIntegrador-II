@@ -1,8 +1,10 @@
 package com.example.projeto_integrador.data;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class MedicoData {
 
     private String nome;
