@@ -54,7 +54,7 @@ async function cadastrarPaciente(event) {
 
 async function cadastrarPacienteData(pacienteData) {
     try {
-        const response = await fetch('http://localhost:8080/paciente', {
+        const response = await fetch('https://projetointegrador-ii-production.up.railway.app/paciente', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -77,7 +77,7 @@ async function cadastrarPacienteData(pacienteData) {
 
 async function cadastrarMedico(medicoData) {
     try {
-        const response = await fetch('http://localhost:8080/medico', {
+        const response = await fetch('https://projetointegrador-ii-production.up.railway.app/medico', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -160,7 +160,7 @@ function formatarTelefone(event) {
 
 async function buscarEnderecoPorCep(cep) {
     try {
-        const response = await fetch(`http://localhost:8080/cep/${cep}`);
+        const response = await fetch(`https://projetointegrador-ii-production.up.railway.app/cep/${cep}`);
         if (response.ok) {
             const endereco = await response.json();
             

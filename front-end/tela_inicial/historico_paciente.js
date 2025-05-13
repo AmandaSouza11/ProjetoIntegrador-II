@@ -1,6 +1,6 @@
 async function loadHistorico() {
     const email = localStorage.getItem('usuarioEmail');
-    const response = await fetch(`http://localhost:8080/historico/paciente/${email}`);
+    const response = await fetch(`https://projetointegrador-ii-production.up.railway.app/historico/paciente/${email}`);
     const historico = await response.json();
 
     const historicoDiv = document.getElementById('historico');
@@ -58,7 +58,7 @@ async function loadHistorico() {
 
 async function cancelarConsulta(idAgendamento) {
     try {
-        const response = await fetch(`http://localhost:8080/cancelar/${idAgendamento}`, {
+        const response = await fetch(`https://projetointegrador-ii-production.up.railway.app/cancelar/${idAgendamento}`, {
             method: 'POST' 
         });
 

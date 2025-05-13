@@ -20,7 +20,7 @@ window.onload = function() {
 
     if (email) {
         console.log(`Iniciando a requisição para http://localhost:8080/medico/consulta/${email}`);
-        fetch(`http://localhost:8080/medico/consulta/${email}`)
+        fetch(`https://projetointegrador-ii-production.up.railway.app/medico/consulta/${email}`)
             .then(response => {
                 console.log('Resposta da API:', response);
                 if (!response.ok) {

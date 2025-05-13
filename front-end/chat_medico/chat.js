@@ -4,7 +4,7 @@ let nomeMedico = "";
 let mapaPacientes = {}; 
 
 function carregarPacientes() {
-    fetch("http://localhost:8080/paciente/listar")
+    fetch("https://projetointegrador-ii-production.up.railway.app/paciente/listar")
         .then(res => res.json())
         .then(data => {
             let pacientesDiv = document.getElementById("pacientes");
@@ -19,7 +19,7 @@ function carregarPacientes() {
             });
         });
 
-    fetch(`http://localhost:8080/medico/perfil/${emailMedico}`)
+    fetch(`https://projetointegrador-ii-production.up.railway.app/medico/perfil/${emailMedico}`)
         .then(res => res.json())
         .then(data => {
             nomeMedico = data.nome;
@@ -28,7 +28,7 @@ function carregarPacientes() {
 
 function abrirChat(emailPaciente) {
     emailPacienteSelecionado = emailPaciente;
-    fetch(`http://localhost:8080/api/chat/mensagens?emailMedico=${emailMedico}&emailPaciente=${emailPaciente}`)
+    fetch(`https://projetointegrador-ii-production.up.railway.app/api/chat/mensagens?emailMedico=${emailMedico}&emailPaciente=${emailPaciente}`)
         .then(res => res.json())
         .then(data => {
             let mensagensDiv = document.getElementById("mensagens");
@@ -63,7 +63,7 @@ function enviarMensagem() {
     let input = document.getElementById("mensagemInput");
     let conteudo = input.value;
 
-    fetch("http://localhost:8080/api/chat/enviar", {
+    fetch("https://projetointegrador-ii-production.up.railway.app/api/chat/enviar", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

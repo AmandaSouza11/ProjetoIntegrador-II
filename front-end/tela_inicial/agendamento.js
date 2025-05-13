@@ -11,7 +11,7 @@ especialidadeSelect.addEventListener('change', function() {
     medicosDiv.innerHTML = ''; 
 
     if (especialidade) {
-        fetch(`http://localhost:8080/medico/${especialidade}`)
+        fetch(`https://projetointegrador-ii-production.up.railway.app/medico/${especialidade}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Erro ao buscar médicos');
@@ -66,7 +66,7 @@ dataInput.addEventListener('change', function() {
         const horarioInput = '9:00'; 
         const medicoEmail = agendarButton.dataset.medicoEmail; 
 
-        fetch(`http://localhost:8080/agendamento/disponiveis?data=${encodeURIComponent(data)}&horario=${encodeURIComponent(horarioInput)}&medioEmail=${encodeURIComponent(medicoEmail)}`)
+        fetch(`https://projetointegrador-ii-production.up.railway.app/agendamento/disponiveis?data=${encodeURIComponent(data)}&horario=${encodeURIComponent(horarioInput)}&medioEmail=${encodeURIComponent(medicoEmail)}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Erro ao buscar horários disponíveis');
@@ -108,7 +108,7 @@ agendarButton.addEventListener('click', () => {
         horario: horario
     };
 
-    fetch('http://localhost:8080/agendamento', {
+    fetch('https://projetointegrador-ii-production.up.railway.app/agendamento', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

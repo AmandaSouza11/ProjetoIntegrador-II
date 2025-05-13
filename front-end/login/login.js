@@ -14,7 +14,7 @@ function logar() {
     const email = emailInput.value;
     const senha = senhaInput.value;
 
-    fetch("http://localhost:8080/login", {
+    fetch("https://projetointegrador-ii-production.up.railway.app/login", {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'

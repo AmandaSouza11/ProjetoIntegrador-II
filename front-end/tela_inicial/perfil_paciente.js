@@ -1,6 +1,6 @@
 function loadProfile() {
     const email = localStorage.getItem('usuarioEmail');
-    const endpoint = `http://localhost:8080/paciente/perfil/${email}`;
+    const endpoint = `https://projetointegrador-ii-production.up.railway.app/paciente/perfil/${email}`;
 
     fetch(endpoint)
         .then(response => {
